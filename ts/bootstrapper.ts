@@ -2,4 +2,4 @@
 
 let machine = new VendingMachine();
 
-//ko.applyBindings(machine);
+ko.applyBindings(machine);

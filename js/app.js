@@ -22,19 +22,19 @@ var coin = new Quarter();
 var VendingMachine = (function () {
     function VendingMachine() {
         var _this = this;
-        this.paid = 0;
-        // acceptCoin(coin: Quarter):void {
-        //     this.paid += coin.Value;
-        // }
+        this.paid = ko.observable(0);
         this.acceptCoin = function (coin) {
-            _this.paid += coin.Value;
-            var element = document.getElementById('total');
-            element.innerHTML = _this.paid.toString();
+            // this.paid += coin.Value;
+            // let element = document.getElementById('total');
+            // element.innerHTML = this.paid.toString();
+            // let oldTotal = this.paid();
+            // this.paid(oldTotal + coin.Value);
+            _this.paid(_this.paid() + coin.Value);
         };
     }
     return VendingMachine;
 }());
 /// <reference path="vendingMachine.ts" />
 var machine = new VendingMachine();
-//ko.applyBindings(machine); 
+ko.applyBindings(machine);
 //# sourceMappingURL=app.js.map
