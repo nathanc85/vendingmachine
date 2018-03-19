@@ -8,13 +8,6 @@
     "tasks": [
         {
             "type": "typescript",
-            "tsconfig": "tsconfig.json",
-            "problemMatcher": [
-                "$tsc"
-            ]
-        },
-        {
-            "type": "typescript",
             "tsconfig": "ts/tsconfig.json",
             "problemMatcher": [
                 "$tsc"
