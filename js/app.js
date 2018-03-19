@@ -1,10 +1,3 @@
-var VendingMachine = (function () {
-    function VendingMachine() {
-    }
-    return VendingMachine;
-}());
-/// <reference path="vendingMachine.ts" />
-var machine = new VendingMachine();
 var Quarter = (function () {
     function Quarter() {
         this.value = .25;
@@ -25,4 +18,23 @@ var Quarter = (function () {
     return Quarter;
 }());
 var coin = new Quarter();
+/// <reference path="./coin.ts" />
+var VendingMachine = (function () {
+    function VendingMachine() {
+        var _this = this;
+        this.paid = 0;
+        // acceptCoin(coin: Quarter):void {
+        //     this.paid += coin.Value;
+        // }
+        this.acceptCoin = function (coin) {
+            _this.paid += coin.Value;
+            var element = document.getElementById('total');
+            element.innerHTML = _this.paid.toString();
+        };
+    }
+    return VendingMachine;
+}());
+/// <reference path="vendingMachine.ts" />
+var machine = new VendingMachine();
+//ko.applyBindings(machine); 
 //# sourceMappingURL=app.js.map
