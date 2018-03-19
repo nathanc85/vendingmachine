@@ -23,13 +23,12 @@ var VendingMachine = (function () {
     function VendingMachine() {
         var _this = this;
         this.paid = ko.observable(0);
+        this.acceptedCoins = [new Quarter()];
         this.acceptCoin = function (coin) {
-            // this.paid += coin.Value;
-            // let element = document.getElementById('total');
-            // element.innerHTML = this.paid.toString();
-            // let oldTotal = this.paid();
-            // this.paid(oldTotal + coin.Value);
-            _this.paid(_this.paid() + coin.Value);
+            // Works the same but the code is shorter.
+            // this.paid(this.paid() + coin.Value);
+            var oldTotal = _this.paid();
+            _this.paid(oldTotal + coin.Value);
         };
     }
     return VendingMachine;

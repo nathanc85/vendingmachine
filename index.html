@@ -13,11 +13,14 @@
                 <h4>
                     Paid: $
                     <span id="total" data-bind="text: paid"></span>
-                    <br><br>
+                    <!-- <br><br>
                     <button class="btn btn-primary" onclick="machine.acceptCoin(new Quarter())">
                         Insert Quarter
-                    </button>
+                    </button> -->
                 </h4>
+                <div data-bind="foreach: acceptedCoins">
+                    <img data-bind="attr: { src: getImageUrl(), alt: value }, click: $parent.acceptCoin">
+                </div>
             </div>
         </div>
         <script src="js/lib/knockout-3.4.0.js"></script>
