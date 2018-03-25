@@ -37,8 +37,8 @@ class VendingMachine {
         this.selectedCell(cell);
     }
 
-    acceptedCoins: Coin[] = [new Dime(), new Quarter(), new Half(), new Dollar()];
-    acceptCoin = (coin: Quarter) => {
+    acceptedCoins: Coins.Coin[] = [new Coins.Dime(), new Coins.Quarter(), new Coins.Half(), new Coins.Dollar()];
+    acceptCoin = (coin: Coins.Quarter) => {
         // Works the same but the code is shorter.
         // this.paid(this.paid() + coin.Value);
 

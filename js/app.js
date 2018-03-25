@@ -3,53 +3,62 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Coin = (function () {
-    function Coin(value) {
-        this.value = value;
-        this.value = value;
-    }
-    return Coin;
-}());
-var Dime = (function (_super) {
-    __extends(Dime, _super);
-    function Dime() {
-        return _super.call(this, .10) || this;
-    }
-    Dime.prototype.getImageUrl = function () {
-        return "img/Dime.png";
-    };
-    return Dime;
-}(Coin));
-var Quarter = (function (_super) {
-    __extends(Quarter, _super);
-    function Quarter() {
-        return _super.call(this, .25) || this;
-    }
-    Quarter.prototype.getImageUrl = function () {
-        return "img/Quarter.png";
-    };
-    return Quarter;
-}(Coin));
-var Half = (function (_super) {
-    __extends(Half, _super);
-    function Half() {
-        return _super.call(this, .50) || this;
-    }
-    Half.prototype.getImageUrl = function () {
-        return "img/Half.png";
-    };
-    return Half;
-}(Coin));
-var Dollar = (function (_super) {
-    __extends(Dollar, _super);
-    function Dollar() {
-        return _super.call(this, 1) || this;
-    }
-    Dollar.prototype.getImageUrl = function () {
-        return "img/Dollar.jpg";
-    };
-    return Dollar;
-}(Coin));
+var Coins;
+(function (Coins) {
+    var imagePath = 'img/';
+    var Coin = (function () {
+        function Coin(value) {
+            this.value = value;
+            this.value = value;
+        }
+        return Coin;
+    }());
+    Coins.Coin = Coin;
+    var Dime = (function (_super) {
+        __extends(Dime, _super);
+        function Dime() {
+            return _super.call(this, .10) || this;
+        }
+        Dime.prototype.getImageUrl = function () {
+            return imagePath + "Dime.png";
+        };
+        return Dime;
+    }(Coin));
+    Coins.Dime = Dime;
+    var Quarter = (function (_super) {
+        __extends(Quarter, _super);
+        function Quarter() {
+            return _super.call(this, .25) || this;
+        }
+        Quarter.prototype.getImageUrl = function () {
+            return imagePath + "Quarter.png";
+        };
+        return Quarter;
+    }(Coin));
+    Coins.Quarter = Quarter;
+    var Half = (function (_super) {
+        __extends(Half, _super);
+        function Half() {
+            return _super.call(this, .50) || this;
+        }
+        Half.prototype.getImageUrl = function () {
+            return imagePath + "Half.png";
+        };
+        return Half;
+    }(Coin));
+    Coins.Half = Half;
+    var Dollar = (function (_super) {
+        __extends(Dollar, _super);
+        function Dollar() {
+            return _super.call(this, 1) || this;
+        }
+        Dollar.prototype.getImageUrl = function () {
+            return imagePath + "Dollar.jpg";
+        };
+        return Dollar;
+    }(Coin));
+    Coins.Dollar = Dollar;
+})(Coins || (Coins = {}));
 var ProductCategory = (function () {
     function ProductCategory() {
         this.path = 'img/';
@@ -193,7 +202,7 @@ var VendingMachine = (function () {
             cell.sold(false);
             _this.selectedCell(cell);
         };
-        this.acceptedCoins = [new Dime(), new Quarter(), new Half(), new Dollar()];
+        this.acceptedCoins = [new Coins.Dime(), new Coins.Quarter(), new Coins.Half(), new Coins.Dollar()];
         this.acceptCoin = function (coin) {
             // Works the same but the code is shorter.
             // this.paid(this.paid() + coin.Value);
